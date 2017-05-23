@@ -1,0 +1,7 @@
+LPARAMETERS cParam1
+SET ALTERNATE TO FoxUnitResults.txt
+SET ALTERNATE ON
+? DATETIME(), "Test One", "PASS"
+? DATETIME(), "Test Two", "FAIL", "This is the fail message"
+SET ALTERNATE OFF
+SET ALTERNATE TO

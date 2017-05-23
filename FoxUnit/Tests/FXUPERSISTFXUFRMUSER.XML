@@ -1,0 +1,48 @@
+<?xml version = "1.0" encoding="Windows-1252" standalone="yes"?>
+<VFPData>
+	<xsd:schema id="VFPData" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="VFPData" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="fxupersistfxufrmuser_4gx0t0bdl" minOccurs="0" maxOccurs="unbounded">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="userid">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="15"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="setting">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="2147483647"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+				<xsd:anyAttribute namespace="http://www.w3.org/XML/1998/namespace" processContents="lax"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<fxupersistfxufrmuser_4gx0t0bdl>
+		<userid>Eric Selje</userid>
+		<setting>THIS.Top = 0</setting>
+	</fxupersistfxufrmuser_4gx0t0bdl>
+	<fxupersistfxufrmuser_4gx0t0bdl>
+		<userid>Eric Selje</userid>
+		<setting>THIS.Left = 0</setting>
+	</fxupersistfxufrmuser_4gx0t0bdl>
+	<fxupersistfxufrmuser_4gx0t0bdl>
+		<userid>Eric Selje</userid>
+		<setting>THIS.Height = 250</setting>
+	</fxupersistfxufrmuser_4gx0t0bdl>
+	<fxupersistfxufrmuser_4gx0t0bdl>
+		<userid>Eric Selje</userid>
+		<setting>THIS.Width = 375</setting>
+	</fxupersistfxufrmuser_4gx0t0bdl>
+</VFPData>

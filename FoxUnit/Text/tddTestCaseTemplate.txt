@@ -1,0 +1,76 @@
+DEFINE CLASS <<testclass>> AS FxuTestCase OF FxuTestCase.prg
+
+  #IF .F.
+    LOCAL THIS AS <<testclass>> OF <<testclass>>.PRG
+  #ENDIF
+
+  * the icTestPrefix property in the base class defaults to "TEST" (not case sensitive).
+  * There is a setting on the interface tab of the options form (accessible via
+  * right-clicking on the main FoxUnit form and choosing the options item) labeled:
+  * "Load and run only tests with the specified icTestPrefix value in test classes"
+  *
+  * If this box is checked, then only tests that start with the specified
+  * icTestPrefix will be loaded into FoxUnit and run.
+  * You can override this prefix on a per-class basis.
+  *----------------------------------------------------------------------------
+  *icTestPrefix = "<Your preferred test method name prefix here>"
+
+  *-----------------------------------------------------------
+  * Declare custom properties here to be used by test methods.
+  *-----------------------------------------------------------
+
+  * Put common setup code here.
+  * This method is called before each test method.
+  *------------------------------------------------
+  FUNCTION SETUP
+
+    LOCAL cCurDir, cTestDir, cProjectDir as String
+
+    cCurDir = SET("DIRECTORY")
+    
+    cTestDir = ADDBS(JUSTPATH(THIS.CLASSLIBRARY))
+
+    SET PATH TO (["] + m.cTestDir + ["]) ADDITIVE
+
+    CD JUSTPATH(THIS.CLASSLIBRARY)
+
+    CD ..
+    
+    cProjectDir = ADDBS(SET("DIRECTORY"))
+
+    SET PATH TO (["] + m.cProjectDir + ["]) ADDITIVE
+
+    CD (m.cCurDir)
+
+  ENDFUNC
+
+  * Put common cleanup code here.
+  * This method is called after each test method.
+  *------------------------------------------------
+  FUNCTION TearDown
+
+  ENDFUNC
+
+  **********************************
+  ****  Test methods go here.  *****
+  **********************************
+
+  *----------------------------------------------------------------------
+  * The three base class methods to call from your test methods are:
+  *
+  * THIS.AssertTrue	(<Expression>, "Failure message")
+  * THIS.AssertEquals	(<ExpectedValue>, <Expression>, "Failure message")
+  * THIS.AssertNotNull	(<Expression>, "Failure message")
+  *
+  * Test methods (through their assertions) either pass or fail.
+  *----------------------------------------------------------------------
+
+  * AssertNotNullOrEmpty() example.
+  *------------------------------
+  FUNCTION TestObjectWasCreated
+
+    THIS.AssertNotNullOrEmpty(THIS.oObjectToBeTested, "Test Object was not created")
+
+  ENDFUNC
+  
+ENDDEFINE
