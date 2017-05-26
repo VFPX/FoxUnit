@@ -1,7 +1,7 @@
 # FoxUnit
 **Unit Testing for Visual FoxPro developers**
 
-Project Manager: [Eric Selje](http://githup.com/ESelje)
+Project Manager: [Eric Selje](https://github.com/ESelje)
 
 The goal of this project is to give VFP Developers a tool to facilitate using unit tests for their Visual FoxPro code base.
 This project has existed for many years as an Open Source project under the patronage of VisionPace Corp. Special thanks to VisionPace for creating this project, and to Russ Swall at VisionPace granting permission to move it to VFPX.
