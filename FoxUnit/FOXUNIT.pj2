@@ -53,7 +53,7 @@ _Interface = '{07777102-F3BB-4910-888A-8798633203AF}'
 *</ServerData>
 
 *<BuildProj>
-*<.HomeDir = 'o:\dev\fox\vfpx\foxunit' />
+*<.HomeDir = 'c:\dev\fox\vfpx\foxunit\foxunit' />
 
 FOR EACH loProject IN _VFP.Projects FOXOBJECT
 	loProject.Close()
