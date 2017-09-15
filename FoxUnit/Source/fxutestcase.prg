@@ -63,8 +63,12 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 	********************************************************************
 		
 		IF VARTYPE(m.toFxuInstance)!="O" OR ISNULL(m.toFxuInstance)
-			ERROR 1924, "m.toFxuInstance"
-			RETURN .F.
+			IF VARTYPE(goFoxUnitForm.ioFxuInstance)='O'
+				m.toFxuInstance=goFoxUnitForm.ioFxuInstance
+			ELSE
+				ERROR 1924, "m.toFxuInstance"
+				RETURN .F.
+			ENDIF			
 		ENDIF
 		this.ioFxuInstance=m.toFxuInstance
 		

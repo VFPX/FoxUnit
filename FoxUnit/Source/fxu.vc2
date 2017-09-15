@@ -821,7 +821,9 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		*  can set this flag
 		*    MODIFY COMMAND FXUResultData
 		*
-			THIS.cmdReloadSelectedTestClass.CLICK()
+		*	THIS.cmdReloadSelectedTestClass.CLICK()
+			ThisForm.ReloadSelectedTestClass()
+			
 		ENDIF
 		
 		*% Change per Derek Alweit

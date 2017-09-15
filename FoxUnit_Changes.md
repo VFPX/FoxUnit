@@ -1,3 +1,7 @@
+**Version 1.61 - September 15, 2017**
+Undeleted a class in the Class Factory Base table that was causing FoxUnit to fail on startup
+Fixed a bug that prevented tests from reloading after editing.
+
 **Version 1.6 - September 20, 2016**
 Replaced graphics with icons from Visual Studio Graphics Library
 Grouped icons into a more logical arrangement, with group titles
