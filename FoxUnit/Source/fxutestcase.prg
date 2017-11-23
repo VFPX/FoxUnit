@@ -128,6 +128,18 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 			this.RunWithSetupTeardownDebugging()
 		ELSE
 
+		*--------------------------------------------------------------------------------------
+		* Test cases are executed in a private datasession. A new data session is used for
+		* every test to avoid cross-pollution of cursor or basic settings between runs. A 
+		* typical problem is that a method relies on a cursor to be open that is opened in a 
+		* previous test. The second test will fail when executed on its own, but pass when
+		* all tests are run - so most of the time.
+		*--------------------------------------------------------------------------------------
+		Local loSession, lnDS
+		loSession = CreateObject("Session")
+		lnDS = Set("DataSession")
+		Set Datasession To loSession.DataSessionID
+
 			TRY
 				
 				this.SetUp()
@@ -152,6 +164,10 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 					=ASTACKINFO(laStackInfo)
 					this.HandleException(loEx,@laStackInfo,.t.)
 				
+				Finally 
+					Set Datasession To m.lnDS
+					Release loSession
+					
 				ENDTRY 
 			
 			ENDTRY
