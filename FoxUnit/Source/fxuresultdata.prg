@@ -86,7 +86,7 @@ DEFINE CLASS FxuResultData AS FxuCustom OF FxuCustom.prg
 
 	IF !FILE(THIS.icDataPath + FORCEEXT(THIS.icResultsTable, "DBF"))
 		m.loDataMaintenance.CreateNewTestResultTable(THIS.icDataPath, THIS.icResultsTable)
-	ELSE
+	Else
 		m.loDataMaintenance.ReIndexResultsTable(.T.)
 	ENDIF
 
@@ -105,11 +105,13 @@ DEFINE CLASS FxuResultData AS FxuCustom OF FxuCustom.prg
 
 	LOCAL lcPkExpression, lnSecondsElapsed
 	LOCAL lcFailureErrorDetails, lcMessages, lcErrorDetails
+	Local lcExpected, lcActual
 
 	m.lnSecondsElapsed		= THIS.CalculateElapsed(m.toTestResult.inCurrentStartSeconds, m.toTestResult.inCurrentEndSeconds)
 	m.lcFailureErrorDetails	= m.toTestResult.icFailureErrorDetails
 	m.lcMessages			= m.toTestResult.icMessages
-
+	m.lcExpected 			= m.toTestResult.icExpected
+	m.lcActual				= m.toTestResult.icActual
 
 	m.lcErrorDetails = SPACE(0)
 	m.lcPkExpression = PADR(UPPER(m.toTestResult.icCurrentTestClass), LENC(EVALUATE(THIS.icResultsTable + ".TClass"))) + ;
@@ -122,6 +124,8 @@ DEFINE CLASS FxuResultData AS FxuCustom OF FxuCustom.prg
 		TElapsed = m.lnSecondsElapsed,  ;
 		Fail_Error = m.lcFailureErrorDetails, ;
 		MESSAGES = m.lcMessages, ;
+		Expected = m.lcExpected, ;
+		Actual = m.lcActual, ;
 		TRUN = .T. ;
 		WHERE UPPER(TClass) + UPPER(TName) == m.lcPkExpression
 
