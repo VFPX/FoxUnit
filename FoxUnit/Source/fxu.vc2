@@ -1325,7 +1325,6 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 				@lcProcessInfo ;
 			)
 		
-		
 	ENDPROC
 
 	PROCEDURE formatsecondselapsed
@@ -3322,7 +3321,6 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 			Local lcTool
 			lcTool = '"' + Thisform.icCompareTool + '"'
 			Thisform.ExecApplication (m.lcTool + " " + m.lcParams)
-			
 		
 		
 	ENDPROC
