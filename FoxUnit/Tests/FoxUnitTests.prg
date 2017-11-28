@@ -247,11 +247,78 @@ this.assertequals(o1,o2,"These objects are not equal.")
   ENDFUNC
 
 
-  FUNCTION testNotImplemented
+  FUNCTION testCompareJSON
 	* 1. Change the name of the test to reflect its purpose. Test one thing only.
 	* 2. Implement the test by removing these comments and the default assertion and writing your own test code.
-  This.MessageOut("Getting ready to run this test!")
-  RETURN This.AssertNotImplemented()
+	
+  * This.MessageOut("Getting ready to run this test!")
+  TEXT TO cExpected 
+  [
+	{
+		color: "red",
+		value: "#f00"
+	},
+	{
+		color: "green",
+		value: "#0f0"
+	},
+	{
+		color: "blue",
+		value: "#00f"
+	},
+	{
+		color: "cyan",
+		value: "#0ff"
+	},
+	{
+		color: "magenta",
+		value: "#f0f"
+	},
+	{
+		color: "yellow",
+		value: "#ff0"
+	},
+	{
+		color: "black",
+		value: "#000"
+	}
+]
+ENDTEXT
+TEXT TO cActual
+[
+	{
+		color: "red",
+		value: "#f00"
+	},
+	{
+		color: "green",
+		value: "#0f0"
+	},
+	{
+		color: "bleu",
+		value: "#00f"
+	},
+	{
+		color: "cyan",
+		value: "#0ff"
+	},
+	{
+		color: "magenta",
+		value: "#f0f"
+	},
+	{
+		color: "yellow",
+		value: "#ff0"
+	},
+	{
+		color: "black",
+		value: "#000"
+	}
+]
+ENDTEXT
+
+	This.assertEquals(cExpected, cActual, "As expected, they don't match.")
+	
 
   ENDFUNC
 

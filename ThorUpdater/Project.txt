@@ -1,0 +1,5 @@
+appName = FoxUnit
+appID = FoxUnit
+majorVersion = 1.6
+excludeFiles = *.bak,*.bat,*.fxp,*.pj?,*.prg,*.txt,foxuser.*,*.md,.gitignore,*.vbr,*.png,*.zip,*.db2,fxuclassfactory.dbf
+excludeFolders = *Documentation*,*Graphics*,*ThorUpdater*,*Source*,*tests*,*Text*

@@ -1,5 +1,9 @@
 (See the FoxUnit Wiki page on the VFPX CodePlex page https://vfpx.codeplex.com/wikipage?title=FoxUnit&referringTitle=Documentation for complete information)
 
+Version 1.7 - November 28, 2017
+Christof added a Compare button to make it easier to see differences with longer values
+Also run each test in its own datasession
+
 Version 1.61 - September 15, 2017
 Fully at https://github.com/vfpx/FoxUnit
 Fixed a couple of bugs that were causing errors when starting up and reloading tests

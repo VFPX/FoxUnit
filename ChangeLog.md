@@ -1,3 +1,7 @@
+**Version 1.7 - November 28, 2017**
+* Each test runs in its own datasession for optimium encapsulation and reproducability
+* Added a [Compare](FoxUnit_CompareButton.md) feature to make analyzing larger results easier
+
 **Version 1.61 - September 15, 2017**
 Undeleted a class in the Class Factory Base table that was causing FoxUnit to fail on startup
 Fixed a bug that prevented tests from reloading after editing.
