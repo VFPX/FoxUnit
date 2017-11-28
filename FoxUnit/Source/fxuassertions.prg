@@ -535,6 +535,7 @@ EXTERNAL ARRAY taArray1, taArray2
 	THIS.AddMessage("Values Not Equal")
 	THIS.AddMessage("Expected Value: " + TRANSFORM(m.teItem1))
 	THIS.AddMessage("Actual Value: " + TRANSFORM(m.teItem2))
+	This.AddComparisonSource(TRANSFORM(m.teItem1), TRANSFORM(m.teItem2))
 	ENDPROC
 ********************************************************************
 ********************************************************************
@@ -610,6 +611,12 @@ EXTERNAL ARRAY taArray1, taArray2
 			ENDIF
 		ENDWITH
 	ENDIF
+	ENDPROC
+********************************************************************
+********************************************************************
+ 	PROCEDURE AddComparisonSource(tcExpected AS STRING, tcActual as String) AS Void
+ 		This.ioTestResult.icExpected = Nvl(m.tcExpected, "")
+ 		This.ioTestResult.icActual = Nvl(m.tcActual, "")
 	ENDPROC
 ********************************************************************
 ********************************************************************

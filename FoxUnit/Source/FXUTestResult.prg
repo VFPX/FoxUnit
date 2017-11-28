@@ -48,6 +48,8 @@ DEFINE CLASS FxuTestResult as Collection
 	inTotalTests = 0
 	inFailedTests = 0
 	icFailureErrorDetails = ''
+	icExpected = ''
+	icActual = ''
 	ioExceptionInfo = .NULL.
 	ioTeardownExceptionInfo = .NULL.
 	ilCurrentResult = .t.
@@ -67,6 +69,8 @@ DEFINE CLASS FxuTestResult as Collection
 		WITH THIS
 
 			.icFailureErrorDetails = ''
+			.icExpected = ''
+			.icActual = ''
 			.icMessages = ''
 			.ilCurrentResult_Allow = .T.
 			.ilCurrentResult = .t.

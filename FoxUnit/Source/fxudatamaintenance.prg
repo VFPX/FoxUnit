@@ -85,7 +85,9 @@ DEFINE CLASS FxuDataMaintenance As FxuCustom OF FxuCustom.prg
 			Telapsed N(10,3), ;
 			 TRun L, ;
 			Fail_Error M, ;
-			 Messages M )
+			 Messages M, ;
+			Expected M, ;
+			Actual M )
 
 		SELECT (this.icResultsTable)
 
@@ -137,6 +139,11 @@ DEFINE CLASS FxuDataMaintenance As FxuCustom OF FxuCustom.prg
 	
 		this.OpenResultsTable(.t.)
 		SELECT (this.icResultsTable)
+		If Fcount() == 10
+			Alter table (this.icResultsTable) ;
+				Add Column Expected M ;
+				Add Column Actual M
+		EndIf 
 		PACK
 		
 		IF !EMPTY(tlExhaustive)

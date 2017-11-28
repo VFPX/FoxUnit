@@ -4,6 +4,16 @@
 *--------------------------------------------------------------------------------------------------------------------------------------------------------
 *< FOXBIN2PRG: Version="1.19" SourceFile="fxu.vcx" /> (Solo para binarios VFP 9 / Only for VFP 9 binaries)
 *
+*-- EXTERNAL_CLASS identify external member Class names / EXTERNAL_CLASS identifica los nombres de las Clases externas
+*< EXTERNAL_CLASS: Name="frmfoxunit" Baseclass="form" />
+*< EXTERNAL_CLASS: Name="frmgettestclasstemplate" Baseclass="form" />
+*< EXTERNAL_CLASS: Name="frmoptions" Baseclass="form" />
+*< EXTERNAL_CLASS: Name="fxufrmbase" Baseclass="form" />
+*< EXTERNAL_CLASS: Name="fxufrmloadclass" Baseclass="form" />
+*< EXTERNAL_CLASS: Name="fxufrmnewtestclass" Baseclass="form" />
+*< EXTERNAL_CLASS: Name="fxufrmtestbroker" Baseclass="form" />
+*< EXTERNAL_CLASS: Name="fxufrmuser" Baseclass="form" />
+*< EXTERNAL_CLASS: Name="fxuinstance" Baseclass="custom" />
 *
 DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx" 
  	*< CLASSDATA: Baseclass="form" Timestamp="" Scale="Pixels" Uniqueid="" />
@@ -17,6 +27,7 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 	*< OBJECTDATA: ObjPath="grdTests.Column2.Text1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="pgfDetails" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfDetails.pgFailuresAndErrors.cmdCompare" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="pgfDetails.pgMessages.edtMessages" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="shpButtons" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdLoadNewTestClass" UniqueID="" Timestamp="" />
@@ -82,6 +93,7 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		*m: clearfilter		&& Clear the results filter
 		*m: detailsprint
 		*m: detailszoom
+		*m: execapplication
 		*m: formatsecondselapsed
 		*m: formfont
 		*m: formresetfont
@@ -98,6 +110,7 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		*m: runalltests		&& runs all tests in all test classes that are currently loaded into the thisform.icGridRs table
 		*m: runclasstests		&& Runs all tests for the class specified
 		*m: runonetest		&& Runs the one test who's row is currently selected in the grid
+		*m: saveproperty
 		*m: seeiftestclassprgexists
 		*m: setallowdebug
 		*m: setprogress		&& sets progress bar back to no tests run status
@@ -115,6 +128,8 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		*m: updatecurrentgridrowcolor
 		*m: zreadme
 		*p: icclassfilter
+		*p: iccompareparameters		&& Parameters passed to the compare tool. %1 and %2 are replaced with temporary file names
+		*p: iccomparetool		&& Full path to external file compare tool
 		*p: icgridrs		&& THIS.grdTests.RecordSource
 		*p: icnamefilter
 		*p: ilallowdebug
@@ -141,6 +156,7 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		*p: lfailedonly		&& Filter to show failed tests only
 		*p: lfiltered		&& Are the results filtered?
 		*p: nsplitterposition
+		*a: iaunprintable[1,0]		&& Array lists all characters that are not printable.
 	*</DefinedPropArrayMethod>
 
 	AllowOutput = .F.
@@ -151,6 +167,8 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 	FillStyle = 1
 	Height = 504
 	icclassfilter = 
+	iccompareparameters = 		&& Parameters passed to the compare tool. %1 and %2 are replaced with temporary file names
+	iccomparetool = 		&& Full path to external file compare tool
 	icgridrs = FXUResults		&& THIS.grdTests.RecordSource
 	icnamefilter = 
 	ilallowdebug = .F.
@@ -683,6 +701,21 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		Page2.Name = "pgMessages"
 		*< END OBJECT: BaseClass="pageframe" />
 
+	ADD OBJECT 'pgfDetails.pgFailuresAndErrors.cmdCompare' AS commandbutton WITH ;
+		Caption = "\<Compare", ;
+		FontName = "Tahoma", ;
+		Height = 40, ;
+		Left = 728, ;
+		Name = "cmdCompare", ;
+		Picture = ..\graphics\compare_13153_32.bmp, ;
+		SpecialEffect = 2, ;
+		TabIndex = 4, ;
+		TabStop = .F., ;
+		ToolTipText = "Compare values", ;
+		Top = 2, ;
+		Width = 56
+		*< END OBJECT: BaseClass="commandbutton" />
+
 	ADD OBJECT 'pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors' AS editbox WITH ;
 		ControlSource = "", ;
 		FontName = "Courier New", ;
@@ -693,7 +726,7 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		ReadOnly = .T., ;
 		TabIndex = 2, ;
 		Top = 3, ;
-		Width = 779
+		Width = 720
 		*< END OBJECT: BaseClass="editbox" />
 
 	ADD OBJECT 'pgfDetails.pgMessages.edtMessages' AS editbox WITH ;
@@ -1059,6 +1092,7 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		ENDIF 
 		
 		THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.Refresh()
+		This.pgfDetails.pgFailuresAndErrors.cmdCompare.Refresh()
 		THIS.pgfDetails.pgMessages.edtMessages.Refresh()
 		
 		This.pgfDetails.pgFailuresAndErrors.FontBold = ;
@@ -1242,6 +1276,55 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		&&	                      loEditBox.FontItalic)
 		&&	loForm.Show()          
 		MODIFY MEMO (m.loEditBox.ControlSource) NOEDIT NOWAIT WINDOW (thisform.Name)
+	ENDPROC
+
+	PROCEDURE execapplication
+		*========================================================================================
+		* Executes another application
+		*========================================================================================
+		LParameter tcCmdLine
+		
+			*--------------------------------------------------------------------------------------
+			* API declarations
+			*--------------------------------------------------------------------------------------
+			DECLARE INTEGER CreateProcess IN kernel32.DLL ;
+				String lpApplicationName, ;
+				STRING lpCommandLine, ;
+				INTEGER lpProcessAttributes, ;
+				INTEGER lpThreadAttributes, ;
+				INTEGER bInheritHandles, ;
+				INTEGER dwCreationFlags, ;
+				String lpEnvironment, ;
+				String lpCurrentDirectory, ;
+				STRING @lpStartupInfo, ;
+				STRING @lpProcessInformation
+			Declare long GetLastError in Win32API
+		
+			*--------------------------------------------------------------------------------------
+			* Launch the application
+			*--------------------------------------------------------------------------------------
+			Local lcStartupInfo, lcProcessInfo, lnOK
+			lcStartupInfo = ;
+				BINTOC(68,"RS") + ;
+				Replicate(Chr(0),40) + ;
+				BinToC(1,"RS") + ;
+				BinToC(10,"2RS") + ; && SW_SHOWDEFAULT
+				BinToC(0,"2RS") + ;
+				Replicate(Chr(0),16)
+			lcProcessInfo = Replicate(Chr(0),16)
+			lnOK = CreateProcess( ;
+				NULL, ;
+				m.tcCmdLine, ;
+				0, ;
+				0, ;
+				1, ;
+				0x20, ;
+				NULL, ;
+				NULL, ;
+				@lcStartupInfo, ;
+				@lcProcessInfo ;
+			)
+		
 	ENDPROC
 
 	PROCEDURE formatsecondselapsed
@@ -1503,8 +1586,26 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		*  ditto the ability to resize
 		*
 			THIS.BORDERSTYLE = 1
-		ENDIF
+		EndIf
 		
+		*
+		*  iaUnprintable array is used for conversions from value to code in 
+		*  the SaveProperty method. IsAlpha handles different code pages.
+		*
+		Local lnAsc, lnCnt
+		lnCnt = 0
+		For lnAsc = 0 to 255
+			If    IsAlpha(Chr(m.lnAsc)) ;
+			   or IsDigit(Chr(m.lnAsc)) ;
+			   or Chr(m.lnAsc) $ '<>!"§$%&/()=?´*_:;+#-.,{[]}\~' ;
+			   or m.lnAsc == Asc("'")
+				* printable
+			Else
+				lnCnt = m.lnCnt + 1
+				Dimension This.iaUnprintable[m.lnCnt]
+				This.iaUnprintable[m.lnCnt] = m.lnAsc
+			EndIf
+		EndFor 
 		
 		*
 		*  apply settings saved last time in THIS.SettingsSave(),
@@ -1691,6 +1792,7 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 			RETURN .F.
 		ENDIF
 		
+		Local loPersistVariables
 		SELECT (m.tcAlias)
 		SCATTER NAME loPersistVariables MEMO
 		loPersistVariables.UserID = THIS.ioFxuInstance.UserId
@@ -1819,6 +1921,9 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		loPersistVariables.Setting = "THIS.inColorFail = " + TRANSFORM(This.inColorFail)
 		INSERT INTO (m.tcAlias) FROM NAME loPersistVariables
 		
+		*CW New settings for comparision tool
+		This.SaveProperty ("icCompareTool", m.loPersistVariables, m.tcAlias)
+		This.SaveProperty ("icCompareParameters", m.loPersistVariables, m.tcAlias)
 		
 	ENDPROC
 
@@ -2145,6 +2250,62 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		* commented out as per comment above locate statement
 		*SELECT (THIS.icGridRS)
 		*=SEEK(m.lcTClass+m.lcTName,THIS.icGridRS,"TCLName")
+		
+	ENDPROC
+
+	PROCEDURE saveproperty
+		*========================================================================================
+		* Saves a single property value into the settings table
+		*========================================================================================
+		LParameter tcProperty, toPersistVariables, tcAlias
+		
+			*--------------------------------------------------------------------------------------
+			* Assertions
+			*--------------------------------------------------------------------------------------
+			Assert Vartype(m.tcProperty) == "C"
+			Assert PemStatus(This, m.tcProperty, 5)
+			Assert Vartype(m.toPersistVariables) == "O"
+			Assert Used(m.tcAlias)
+			
+			*--------------------------------------------------------------------------------------
+			* Convert property value to FoxPro source code as a string that is safe for execution.
+			*--------------------------------------------------------------------------------------
+			Local luValue, lcCode
+			luValue = GetPem(This, m.tcProperty)
+			Do case
+			Case Vartype(m.luValue) == "X"
+				lcCode = ".NULL."
+			Case Vartype(m.luValue) == "N"
+				Assert m.luValue == Round(m.luValue, 0) Message ;
+					"Only integer values are supported. Fractions need to handle SET POINT " + ;
+					"and SET DECIMAL correctly."
+				lcCode = TRANSFORM(m.luValue)
+			Case Vartype(m.luValue) == "C"
+				Local lnBlock, lcBlock, lnAsc
+				lcCode = ""
+				For lnBlock = 1 to Ceiling(Len(m.luValue)/250) && String literals limited
+					If not Empty(m.lcCode)
+						lcCode = m.lcCode + "+"
+					EndIf
+					lcBlock = Substr(m.luValue, (m.lnBlock-1)*250+1, 250)
+					lcBlock = Strtran (m.lcBlock, "'", "'+Chr("+Transform(Asc("'"))+")+'")
+					For each lnAsc in This.iaUnprintable
+						If Chr(lnAsc) $ m.lcBlock
+							lcBlock = Strtran (m.lcBlock, Chr(m.lnAsc), "'+Chr("+Transform(m.lnAsc)+")+'")
+						EndIf
+					EndFor 
+					lcCode = m.lcCode + "'" + m.lcBlock + "'"
+				EndFor 
+			Otherwise
+				Assert .F. Message "Unhandled data type '"+Vartype(m.luValue)+"'"
+				Return
+			EndCase
+			
+			*--------------------------------------------------------------------------------------
+			* Save code line into settings table.
+			*--------------------------------------------------------------------------------------
+			toPersistVariables.Setting = "THIS." + m.tcProperty + " = " + m.lcCode
+			INSERT INTO (m.tcAlias) FROM NAME toPersistVariables
 		
 	ENDPROC
 
@@ -3128,6 +3289,83 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		  THIS.Anchor = 15 && Matt Slay 2013-12-16
 		
 		ENDIF
+	ENDPROC
+
+	PROCEDURE pgfDetails.pgFailuresAndErrors.cmdCompare.Click
+		*========================================================================================
+		* Compare the two values by executing an external tool
+		*========================================================================================
+		
+			*--------------------------------------------------------------------------------------
+			* Generate temporary files for actual and expected content
+			*--------------------------------------------------------------------------------------
+			Local lcFileBase, lcActual, lcExpected
+			lcFileBase = AddBS(GetEnv("TEMP")) + ;
+				"FoxUnit_" + Transform(_Vfp.ProcessId) + Sys(2015) + "_"
+			lcActual = Evaluate(THISFORM.icGridRS + ".Actual")
+			StrToFile(m.lcActual, m.lcFileBase+"Actual")
+			lcExpected = Evaluate(THISFORM.icGridRS + ".Expected")
+			StrToFile(m.lcExpected, m.lcFileBase+"Expected")
+		
+			*--------------------------------------------------------------------------------------
+			* Determine parameters
+			*--------------------------------------------------------------------------------------
+			Local lcParams
+			lcParams = Evl(Thisform.icCompareParameters, "%1 %2")
+			lcParams = Strtran(m.lcParams, "%1", '"'+m.lcFileBase+'Expected"')
+			lcParams = Strtran(m.lcParams, "%2", '"'+m.lcFileBase+'Actual"')
+			
+			*--------------------------------------------------------------------------------------
+			* Launch comparision utility
+			*--------------------------------------------------------------------------------------
+			Local lcTool
+			lcTool = '"' + Thisform.icCompareTool + '"'
+			Thisform.ExecApplication (m.lcTool + " " + m.lcParams)
+		
+		
+	ENDPROC
+
+	PROCEDURE pgfDetails.pgFailuresAndErrors.cmdCompare.Init
+		IF NOT DODEFAULT()
+		  RETURN .F.
+		ENDIF
+		
+		IF VERSION(5)>=900
+		  THIS.Anchor = 8
+		ENDIF
+		
+	ENDPROC
+
+	PROCEDURE pgfDetails.pgFailuresAndErrors.cmdCompare.Refresh
+		*========================================================================================
+		* Compare is only available, if there is a tool and data to compare.
+		*========================================================================================
+		
+			Local lcActual, lcExpected
+			Do case
+			Case not Used(THISFORM.icGridRS)
+				This.Enabled = .F.
+			Case Empty(Thisform.icCompareTool)
+				This.Enabled = .F.
+			Otherwise
+				lcActual = Evaluate(THISFORM.icGridRS + ".Actual")
+				lcExpected = Evaluate(THISFORM.icGridRS + ".Expected")
+				If Empty(m.lcActual) and Empty(m.lcExpected)
+					This.Enabled = .F.
+				Else
+					This.Enabled = .T.
+				EndIf
+			EndCase
+		
+	ENDPROC
+
+	PROCEDURE pgfDetails.pgFailuresAndErrors.cmdCompare.UIEnable
+		LPARAMETERS lEnable
+		
+		IF m.lEnable
+		  THIS.Refresh()
+		ENDIF
+		
 	ENDPROC
 
 	PROCEDURE pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.Init
@@ -4414,6 +4652,11 @@ DEFINE CLASS frmoptions AS form
 	*< OBJECTDATA: ObjPath="pgfOptions.pagAbout.Check3" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="pgfOptions.pagAbout.Check4" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="pgfOptions.pagAbout.edtDocument" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfOptions.pagTools.txtCompareTool" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfOptions.pagTools.cmdSelectFile" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfOptions.pagTools.Label1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfOptions.pagTools.Label2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfOptions.pagTools.txtCompareParameters" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdCancel" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdOK" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Label1" UniqueID="" Timestamp="" />
@@ -4490,16 +4733,22 @@ DEFINE CLASS frmoptions AS form
 		Height = 352, ;
 		Left = 8, ;
 		Name = "pgfOptions", ;
-		PageCount = 3, ;
+		PageCount = 4, ;
 		Themes = .F., ;
 		Top = 8, ;
 		Width = 652, ;
 		Page1.Caption = "Debugging", ;
 		Page1.Name = "pagDebugging", ;
+		Page1.PageOrder = 1, ;
 		Page2.Caption = "Interface", ;
 		Page2.Name = "pagInterface", ;
+		Page2.PageOrder = 2, ;
 		Page3.Caption = "About", ;
-		Page3.Name = "pagAbout"
+		Page3.Name = "pagAbout", ;
+		Page3.PageOrder = 4, ;
+		Page4.Caption = "Tools", ;
+		Page4.Name = "pagTools", ;
+		Page4.PageOrder = 3
 		*< END OBJECT: BaseClass="pageframe" />
 
 	ADD OBJECT 'pgfOptions.pagAbout.Check1' AS checkbox WITH ;
@@ -4998,6 +5247,62 @@ DEFINE CLASS frmoptions AS form
 		Top = 123, ;
 		Width = 22
 		*< END OBJECT: BaseClass="shape" />
+
+	ADD OBJECT 'pgfOptions.pagTools.cmdSelectFile' AS commandbutton WITH ;
+		Caption = "Select...", ;
+		Height = 25, ;
+		Left = 571, ;
+		Name = "cmdSelectFile", ;
+		TabIndex = 2, ;
+		Top = 34, ;
+		Width = 64, ;
+		ZOrderSet = 13
+		*< END OBJECT: BaseClass="commandbutton" />
+
+	ADD OBJECT 'pgfOptions.pagTools.Label1' AS label WITH ;
+		BackStyle = 0, ;
+		Caption = "Configure the tool used for comparing expected and actual values of failed tests", ;
+		Height = 15, ;
+		Left = 6, ;
+		Name = "Label1", ;
+		TabIndex = 1, ;
+		Top = 9, ;
+		Width = 620, ;
+		WordWrap = .T.
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'pgfOptions.pagTools.Label2' AS label WITH ;
+		BackStyle = 0, ;
+		Caption = "Specify the command line parameters. You can use %1 and %2 as placeholders for the two files. Quotes are added automatically. If you don't specify anything, the default of %1 %2 is used.", ;
+		Height = 35, ;
+		Left = 6, ;
+		Name = "Label2", ;
+		TabIndex = 4, ;
+		Top = 79, ;
+		Width = 620, ;
+		WordWrap = .T.
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'pgfOptions.pagTools.txtCompareParameters' AS textbox WITH ;
+		Height = 25, ;
+		Left = 11, ;
+		Name = "txtCompareParameters", ;
+		TabIndex = 5, ;
+		Top = 119, ;
+		Width = 545, ;
+		ZOrderSet = 9
+		*< END OBJECT: BaseClass="textbox" />
+
+	ADD OBJECT 'pgfOptions.pagTools.txtCompareTool' AS textbox WITH ;
+		Height = 25, ;
+		Left = 11, ;
+		Name = "txtCompareTool", ;
+		TabIndex = 3, ;
+		TabStop = .F., ;
+		Top = 34, ;
+		Width = 545, ;
+		ZOrderSet = 9
+		*< END OBJECT: BaseClass="textbox" />
 	
 	PROCEDURE Destroy
 		THIS.ioMainForm = .NULL.
@@ -5045,6 +5350,11 @@ DEFINE CLASS frmoptions AS form
 		thisform.ioMainForm.inColorPass = this.pgfOptions.pagInterface.shpPass.FillColor
 		thisform.ioMainForm.inColorFail = this.pgfOptions.pagInterface.shpFail.FillColor
 		
+		* Tools page options
+		thisform.ioMainForm.icCompareTool = ;
+			Alltrim(this.pgfOptions.pagTools.txtCompareTool.Value)
+		thisform.ioMainForm.icCompareParameters = ;
+			Alltrim(this.pgfOptions.pagTools.txtCompareParameters.Value)
 		
 		* If we've changed the value of ilHonorTestPrefix, 
 		* we need to reload all test case classes
@@ -5135,6 +5445,49 @@ DEFINE CLASS frmoptions AS form
 
 	PROCEDURE pgfOptions.pagInterface.shpPass.Click
 		This.FillColor = GETCOLOR(This.FillColor)
+	ENDPROC
+
+	PROCEDURE pgfOptions.pagTools.cmdSelectFile.Click
+		*========================================================================================
+		* Let the user select a file comparison tool
+		*========================================================================================
+		
+			*--------------------------------------------------------------------------------------
+			* GetFile operates on the current folder by default. We switch to the tool folder.
+			*--------------------------------------------------------------------------------------
+			Local lcCurDir, lcToolDir
+			lcCurDir = Sys(5) + Curdir()
+			lcToolDir = JustPath(This.Parent.txtCompareTool.Value)
+			If not Empty(m.lcToolDir) and Directory(m.lcToolDir, 1)
+				Cd (m.lcToolDir)
+			EndIf
+			
+			*--------------------------------------------------------------------------------------
+			* User can select a new tool.
+			*--------------------------------------------------------------------------------------
+			Local lcTool
+			lcTool = Lower(GetFile("EXE", "Select file comparison tool"))
+			If not Empty(m.lcTool)
+				This.Parent.txtCompareTool.Value = m.lcTool
+			EndIf
+			
+			*--------------------------------------------------------------------------------------
+			* Switch back to the previous current directory
+			*--------------------------------------------------------------------------------------
+			If not lcCurDir == Sys(5) + Curdir()
+				Cd (m.lcCurDir)
+			EndIf
+			
+	ENDPROC
+
+	PROCEDURE pgfOptions.pagTools.txtCompareParameters.Init
+		this.Value = thisform.ioMainForm.icCompareParameters
+		
+	ENDPROC
+
+	PROCEDURE pgfOptions.pagTools.txtCompareTool.Init
+		This.Value = thisform.ioMainForm.icCompareTool
+		
 	ENDPROC
 
 ENDDEFINE
