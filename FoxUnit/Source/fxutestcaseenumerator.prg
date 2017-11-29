@@ -94,8 +94,13 @@ DEFINE CLASS FxuTestCaseEnumerator as FxuCustom OF FxuCustom.prg
 			*ENDIF 
 		ENDIF 
 		
+		*--------------------------------------------------------------------------------------
+		* Read program so that we can check the visibility of each method
+		*--------------------------------------------------------------------------------------
+		Local laLines[1]
 		*tcProgramFile = JUSTSTEM(tcProgramFile) + ".prg"
-    	tcProgramFile = FORCEEXT(tcProgramFile, "prg") && HAS
+		tcProgramFile = FORCEEXT(tcProgramFile, "prg") && HAS
+		ALines (laLines, FileToStr(m.tcProgramFile))
 		
 		IF EMPTY(tcClass)
 			tcClass = JUSTSTEM(tcProgramFile)
@@ -130,6 +135,19 @@ DEFINE CLASS FxuTestCaseEnumerator as FxuCustom OF FxuCustom.prg
 			IF UPPER(lcClass) == UPPER(tcClass) 
 				
 				llFoundClass = .t.
+				
+				*--------------------------------------------------------------------------------------
+				* Check the visibiliy of the procedure. We skip hidden methods.
+				*--------------------------------------------------------------------------------------
+				Local lcVisiblity				
+				lcVisiblity = StrExtract(laLines[laProcedures[m.lnX,2]], "", "PROC", 1, 1)
+				If Empty(m.lcVisiblity)
+					lcVisiblity = StrExtract(laLines[laProcedures[m.lnX,2]], "", "FUNC", 1, 1)
+				EndIf 
+				lcVisiblity = GetWordNum(Upper(Chrtran(m.lcVisiblity,Space(1)+Chr(9),"")),1)
+				If m.lcVisiblity == "HIDD" or m.lcVisiblity == "HIDDE" or m.lcVisiblity == "HIDDEN"
+					Loop
+				EndIf
 				
 				lcCurrentMethod = SUBSTR(lcCurrentProcedure,lnDotPos + 1,150) && FDBOZZO. Fix from 100 to 150
 				*IF UPPER(LEFT(lcCurrentMethod,4)) == "TEST"
