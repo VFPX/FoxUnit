@@ -32,7 +32,7 @@ This file is vital to the class factory of FoxUnit. It must reside in the FoxUni
 
 The class factory table
 
-The second file the FoxUnit class factory works with. This table is also located in the FoxUnit Path, but is created automatically if it doesn't exist. [That's why it doesn't appear in the FoxUnit SVN repository.](That's-why-it-doesn't-appear-in-the-FoxUnit-SVN-repository.)-this is a lie, but it reflects what it should be like The FoxUnit class factory needs write access to this file, so it should not be shared in SCC.
+The second file the FoxUnit class factory works with. This table is also located in the FoxUnit Path, but is created automatically if it doesn't exist. 
 
 ## `FXURresults.dbf`
 
