@@ -1,3 +1,5 @@
+## Change Log
+
 **Version 1.7 - November 28, 2017**
 * Each test runs in its own datasession for optimium encapsulation and reproducability
 * Added a [Compare](FoxUnit_CompareButton.md) feature to make analyzing larger results easier
