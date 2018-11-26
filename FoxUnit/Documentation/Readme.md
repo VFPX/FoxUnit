@@ -1,12 +1,12 @@
 
-FAQ
+## FAQ
 
 Q. What is FoxUnit?
-A. FoxUnit is an open-source unit testing framework for Microsoft Visual FoxPro®. It is based on unit testing frameworks as described in Kent Beck's book "Test Driven Development by Example" but takes a more pragmatic approach to unit testing for Visual FoxPro than a more purist xUnit implementation would.
+A. FoxUnit is an open-source unit testing framework for Microsoft Visual FoxProÂ®. It is based on unit testing frameworks as described in Kent Beck's book "Test Driven Development by Example" but takes a more pragmatic approach to unit testing for Visual FoxPro than a more purist xUnit implementation would.
 
 
 Q.  What is required to run FoxUnit?
-A.  FoxUnit requires Microsoft Visual FoxPro® 8 or higher. If running VFP 9, there are UI enhancements that take advantage of new features in VFP 9.
+A.  FoxUnit requires Microsoft Visual FoxProÂ® 8 or higher. If running VFP 9, there are UI enhancements that take advantage of new features in VFP 9.
 
 
 Q.  Why did we do it?
@@ -14,7 +14,7 @@ A.  It is our hope that FoxUnit will promote the growth of Test-Driven Developme
 
 
 
-FoxUnit QuickStart 	
+## FoxUnit QuickStart 	
 
 Steps to getting up and running with FoxUnit:
 
