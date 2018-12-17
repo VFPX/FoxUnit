@@ -179,8 +179,8 @@ DEFINE CLASS cprogresscontainer AS container 		&& A container class for the prog
 		Name = "cntProgressBar", ;
 		Top = 36, ;
 		Width = 240, ;
-		lblPercent.Name = "lblPercent", ;
-		shpBar.Name = "shpBar"
+		shpBar.Name = "shpBar", ;
+		lblPercent.Name = "lblPercent"
 		*< END OBJECT: ClassLib="cprogres.vcx" BaseClass="container" />
 
 	ADD OBJECT 'cntStatus' AS cstatusbar WITH ;
