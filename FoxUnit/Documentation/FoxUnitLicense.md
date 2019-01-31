@@ -1,4 +1,4 @@
-FoxUnit is licensed under the Shared Source License for VFPX
+**FoxUnit is licensed under the Shared Source License for VFPX**
 
 This license governs use of the accompanying software ('Software'), and your use of the Software constitutes acceptance of this license.
 

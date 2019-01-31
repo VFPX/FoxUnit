@@ -8,7 +8,7 @@ This project has existed for many years as an Open Source project under the patr
 
 FoxUnit can also be acquired via Thor's "Check For Updates"
 
-[FoxUnit Release History](ChangeLog.md)
+[FoxUnit Release History](changelog/readme.md)
 
 *Helpful Resources*
 
