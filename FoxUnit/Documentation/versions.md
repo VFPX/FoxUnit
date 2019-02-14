@@ -1,76 +1,77 @@
-(See the FoxUnit Wiki page on the VFPX CodePlex page https://vfpx.codeplex.com/wikipage?title=FoxUnit&referringTitle=Documentation for complete information)
 
-Version 1.61 - September 15, 2017
+### Version 1.7 - November 28, 2017
+
+Christof added a Compare button to make it easier to see differences with longer values
+Also run each test in its own datasession
+
+### Version 1.61 - September 15, 2017
 Fully at https://github.com/vfpx/FoxUnit
 Fixed a couple of bugs that were causing errors when starting up and reloading tests
 
 
-Version 1.6 - September 20, 2016
+### Version 1.6 - September 20, 2016
 Replaced graphics with icons from Visual Studio Graphics Library
 Grouped icons into a more logical arrangement, with group titles
 Added the ability to create a test class with unimplemented tests from all methods in a class library
 Allow custom colors for pass/fail
 Hide the filter panel unless Filter toggle is switched on
 
-VFPX Release 1.51 - July 29, 2015
+### VFPX Release 1.51 - July 29, 2015
 Refactored many forms to be subclasses of new fxuFrmUser, which holds the ioFxuInstance object and the SettingsSave() and SettingsRestore() functions.
 Removed check whether tests are in path
 Added more unit tests for the forms in fxu_fxuFrmUserTests.prg
 Misc U/I Cleanup
 Switched to FoxBin2Prg for SCM
 
-VFPX Release 1.5 - July 11, 2015
+### VFPX Release 1.5 - July 11, 2015
 Introduced class FxuInstance - see http://vfpx.codeplex.com/wikipage?title=FoxUnit_Changes for further information.
 Removed FXUShowForm.prg
 Removed FXUNewObject.prg
 
-VFPX Release 1.42 - May 20, 2015
+### VFPX Release 1.42 - May 20, 2015
 Added an option to keep the visual results from previous tests intact when running new tests.
 
-VFPX Release 1.41 - November 11, 2014
+### VFPX Release 1.41 - November 11, 2014
 Added a new assertion, AssertNotImplemented()
 Made that the default function call on new tests
 Changed name of new tests to testNewTest to conform with standard of test names beginning with 'test'
 
-VFPX Release 1.4 - August 1, 2014
+### VFPX Release 1.4 - August 1, 2014
 Added an Options button to the main screen.
 Added a filter on failed tests (per VFPX request by Tamar Granor)
 Reworked the "New Test Class" screen
 
-VFPX Release 1.3 - July 29, 2014
+### VFPX Release 1.3 - July 29, 2014
 Burkhard Stiller added: AssertEqualsArrays, AssertEqualsObjects, AssertEqualsValues, AssertHasError, AssertHasErrorNo, AssertIsObject, AssertIsNotObject
 Eric Selje added FoxUnit tests for FoxUnit itself, under the Tests folder. 
 
-VFPX Release 1.21 - July 11, 2014
+### VFPX Release 1.21 - July 11, 2014
 Doug Meerschaert found a bug that caused AssertEquals to ignore the NonCaseSensitive flag. (work item 34625)
 
-VFPX Release 1.2 - July 9, 2014
+### VFPX Release 1.2 - July 9, 2014
 
 Matt Slay uses SFSplitter to separate the tests from the results on the form.
 Fernando Bozzo abstracts the tests to COM classes, allows FoxUnit to be used by a Continuous Integration Server.
 
-VFPX Release 1.1 - December 20, 2012
+### VFPX Release 1.1 - December 20, 2012
 
 This intial release on VFPX incorporates Alan Stevens' modifications to the test calls to make them comply with the industry standards. Documentation changed to reflect those changes. Code organized into folders.
 
 
-Release Notes - Updated 03/16/2005 	
+### Release Notes - Updated 03/16/2005 	
 03/16/2005 - FoxUnit Version 1.02.00 Released
 
 Enhancements:
 [Load Class] now loads a form with test classes from which you can load multiple test classes from a consistent interface.
 
-New FxuTestCase::SetForModalFormTest() method hides the FoxUnit form while your modal form is tested. This enhancement could also be considered a defect resolution for issues where testing modal forms would sometimes hang the modal form inside the FoxUnit form. An additional hidden method,
-FxuTestCase::PostTearDown(), was added to check for a modal test having been run and, if so, un-hiding the FoxUnit form on completion of the modal form test.
+New `FxuTestCase::SetForModalFormTest()` method hides the FoxUnit form while your modal form is tested. This enhancement could also be considered a defect resolution for issues where testing modal forms would sometimes hang the modal form inside the FoxUnit form. An additional hidden method, `FxuTestCase::PostTearDown()`, was added to check for a modal test having been run and, if so, un-hiding the FoxUnit form on completion of the modal form test.
 
-Case-insensitive string comparisons have been added to the
-FxuTestCase::AssertEquals() method and all related methods in the FxuAssertions class. A fourth parameter, tuNonCaseSensitiveStringComparison,
-defaults to .F. to support backwards compatibility with all of your existing test classes. Setting this parameter to .T. only affects the comparison if the Expected and Actual values are strings.
+Case-insensitive string comparisons have been added to the `FxuTestCase::AssertEquals()` method and all related methods in the FxuAssertions class. A fourth parameter, tuNonCaseSensitiveStringComparison, defaults to `.F.` to support backwards compatibility with all of your existing test classes. Setting this parameter to `.T.` only affects the comparison if the Expected and Actual values are strings.
 
 The default behavior for all new installs of FoxUnit is to only load and run test methods that are prefixed with the icTestPrefix. For previous users of FoxUnit, each project already has preferences set in its default test folder that should persist your previous setting of loading and running test methods that begin with the icTestPrefix, but new projects will default to the new behavior as of FoxUnit 1.0.2.
 
 
-Defect Resolutions:
+### Defect Resolutions:
 We have cleaned up a number of undeclared local variables. We will continue to clean up undeclared local variables while enhancing FoxUnit.
 
 Testcase templates created from intermediate classes derived from FxuTestCase, either directly or as a more distant ancestor, should correctly load into the template choice/management form launched after naming a new test class.
@@ -82,14 +83,14 @@ When last test in the grid is run by itself (run selected), the correct color (g
 The FxuTestCase::MessageOut() method will now insert a blank line in the messages instead of throwing an exception when invoked with no parameters.
 
 
-09/14/2004 - FoxUnit Version 1.01.02 - Refresh build is released
+### 09/14/2004 - FoxUnit Version 1.01.02 - Refresh build is released
 
 Defect Resolutions:
 FxuAssertions::IsObject and FxuAssertions::EnumerateVarType methods both changed from hidden to protected to faciliate use of these methods in derived classes.
 
 
 
-09/12/2004 - FoxUnit Version 1.01.01 - Refresh build is released
+### 09/12/2004 - FoxUnit Version 1.01.01 - Refresh build is released
 
 Enhancements:
 Option added to close debugger upon completion of test(s) run (all, class or selected). This could also be considered a defect resolution since previous behavior was to always close the debugger on completion of test(s) run. This was reported as a defect on the FoxUnit defects discussion forum. The default setting of the checkbox is unchecked (debugger won't be closed on completion of test(s) run).
@@ -113,7 +114,7 @@ Passing an empty class string into FxuResultData::ReloadTestCaseClass (which hap
 Record pointer now moves to the correct record every time when running one test only.
 
 
-08/31/2004 - FoxUnit Version 1.01.00 Released
+### 08/31/2004 - FoxUnit Version 1.01.00 Released
 
 Enhancements:
 First failed test a run of tests (selected, class or all) is selected after running tests in order to immediately display the details of the first failure.
@@ -134,7 +135,7 @@ Test method name correctly shows above grid in main FoxUnit form after the class
 
 
 
-08/16/2004 - FoxUnit Version 1.00.02 - Refresh build is released
+### 08/16/2004 - FoxUnit Version 1.00.02 - Refresh build is released
 
 Defect Resolutions:
 Resolved issue where FxuAssertions::AssertEqualsValues would return .t. when comparing strings where the expression was an empty string
@@ -143,7 +144,7 @@ Misc:
 Refactored tests run/tests failed labeling in main FoxUnit form.
 
 
-08/12/2004 - FoxUnit Version 1.00.01 - Refresh build is released. 
+### 08/12/2004 - FoxUnit Version 1.00.01 - Refresh build is released. 
 
 Enhancements:
 Added a verbose explanation of the behavior of FxuTestCase::icTestPrefix in the FxuTestCaseTemplate.txt (default and verbose Test Case Template file) file.
@@ -160,7 +161,7 @@ Modified FxuFrmNewTestCase form class to autocenter, and conform cosmetically to
 
 
 
-08/10/2004 - FoxUnit Version 1.00.00 - The official, initial release of FoxUnit.
+### 08/10/2004 - FoxUnit Version 1.00.00 - The official, initial release of FoxUnit.
 
 Enhancements:
 Options can now be accessed from the main FoxUnit form. Right clicking on any area of the main FoxUnit form (that does not contain a control) will display an options item in the menu. The options item was always available, but up until this release, it only displayed an "under construction" messagebox. Now, there is a new options form. The options on this form will persist from session to session similar to the behavior of the many settings in the main FoxUnit form. The new options are:

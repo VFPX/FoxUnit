@@ -4,16 +4,6 @@
 *--------------------------------------------------------------------------------------------------------------------------------------------------------
 *< FOXBIN2PRG: Version="1.19" SourceFile="fxu.vcx" /> (Solo para binarios VFP 9 / Only for VFP 9 binaries)
 *
-*-- EXTERNAL_CLASS identify external member Class names / EXTERNAL_CLASS identifica los nombres de las Clases externas
-*< EXTERNAL_CLASS: Name="frmfoxunit" Baseclass="form" />
-*< EXTERNAL_CLASS: Name="frmgettestclasstemplate" Baseclass="form" />
-*< EXTERNAL_CLASS: Name="frmoptions" Baseclass="form" />
-*< EXTERNAL_CLASS: Name="fxufrmbase" Baseclass="form" />
-*< EXTERNAL_CLASS: Name="fxufrmloadclass" Baseclass="form" />
-*< EXTERNAL_CLASS: Name="fxufrmnewtestclass" Baseclass="form" />
-*< EXTERNAL_CLASS: Name="fxufrmtestbroker" Baseclass="form" />
-*< EXTERNAL_CLASS: Name="fxufrmuser" Baseclass="form" />
-*< EXTERNAL_CLASS: Name="fxuinstance" Baseclass="custom" />
 *
 DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx" 
  	*< CLASSDATA: Baseclass="form" Timestamp="" Scale="Pixels" Uniqueid="" />
@@ -202,6 +192,7 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 
 	ADD OBJECT 'chkFilter' AS checkbox WITH ;
 		Alignment = 0, ;
+		Anchor = 8, ;
 		Caption = "Filter", ;
 		ControlSource = "ThisForm.lFiltered", ;
 		Height = 40, ;
@@ -681,9 +672,9 @@ DEFINE CLASS frmfoxunit AS fxufrmuser OF "fxu.vcx"
 		TabIndex = 21, ;
 		Top = 478, ;
 		Width = 777, ;
-		lblPercent.Name = "lblPercent", ;
 		shpBar.BackColor = 0,0,255, ;
-		shpBar.Name = "shpBar"
+		shpBar.Name = "shpBar", ;
+		lblPercent.Name = "lblPercent"
 		*< END OBJECT: ClassLib="cprogres.vcx" BaseClass="container" />
 
 	ADD OBJECT 'pgfDetails' AS pageframe WITH ;
@@ -4755,7 +4746,7 @@ DEFINE CLASS frmoptions AS form
 		Alignment = 0, ;
 		AutoSize = .F., ;
 		Caption = "Getting Started", ;
-		Comment = "readme.txt", ;
+		Comment = "readme.md", ;
 		Height = 43, ;
 		Left = 2, ;
 		Name = "Check1", ;
@@ -4770,7 +4761,7 @@ DEFINE CLASS frmoptions AS form
 		Alignment = 0, ;
 		AutoSize = .F., ;
 		Caption = "Version History", ;
-		Comment = "versions.txt", ;
+		Comment = "versions.md", ;
 		Height = 43, ;
 		Left = 2, ;
 		Name = "Check2", ;
@@ -4785,7 +4776,7 @@ DEFINE CLASS frmoptions AS form
 		Alignment = 0, ;
 		AutoSize = .F., ;
 		Caption = "Acknowledgements", ;
-		Comment = "foxunitacknowledgements.txt", ;
+		Comment = "foxunitacknowledgements.md", ;
 		Height = 43, ;
 		Left = 2, ;
 		Name = "Check3", ;
@@ -4800,7 +4791,7 @@ DEFINE CLASS frmoptions AS form
 		Alignment = 0, ;
 		AutoSize = .F., ;
 		Caption = "License", ;
-		Comment = "foxunitlicense.txt", ;
+		Comment = "foxunitlicense.md", ;
 		Height = 43, ;
 		Left = 2, ;
 		Name = "Check4", ;

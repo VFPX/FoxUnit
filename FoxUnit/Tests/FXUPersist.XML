@@ -4,7 +4,7 @@
 		<xsd:element name="VFPData" msdata:IsDataSet="true">
 			<xsd:complexType>
 				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="fxupersist_50g0vhs98" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="fxupersist_52j0j65xv" minOccurs="0" maxOccurs="unbounded">
 						<xsd:complexType>
 							<xsd:sequence>
 								<xsd:element name="userid">
@@ -29,356 +29,380 @@
 			</xsd:complexType>
 		</xsd:element>
 	</xsd:schema>
-	<fxupersist_50g0vhs98>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.Top = 86</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.Left = 596</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.Height = IIF(VERSION(5)&gt;=900,749,504)</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.Width = IIF(VERSION(5)&gt;=900,803,803)</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.inZoomTop = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.inZoomLeft = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.inZoomHeight = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.inZoomWidth = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.inZoomWindowState = 0</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.ActivePage = 1</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.grdTests.FontName = "Tahoma"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.grdTests.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.grdTests.FontBold = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.grdTests.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.FontName = "Tahoma"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.FontBold = .T.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.FontName = "Tahoma"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.FontBold = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgMessages.FontName = "Tahoma"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgMessages.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgMessages.FontBold = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgMessages.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgMessages.edtMessages.FontName = "Tahoma"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgMessages.edtMessages.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgMessages.edtMessages.FontBold = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.pgfDetails.pgMessages.edtMessages.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.ilLargeGrid=.F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.grdTests.COLUMN1.Width = 208</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.grdTests.COLUMN2.Width = 550</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>SET ORDER TO TAG TCLOC IN (THIS.icGridRS)</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>=SEEK("SUBFOX_TESTS                                                                                                  TESTNEWTEST                                                                                                                       ",THIS.icGridRS,"TCLName")</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.ilAllowDebug = .T.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.ShowTips = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.ilHonorTestPrefix = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.ilReloadTestsOnRun = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.ilCloseDebuggerAtEndOfTestsRun = .T.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.nSplitterPosition = 425</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.iResetResults = .T.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.inColorPass = 8454016</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric</userid>
 		<setting>THIS.inColorFail = 128</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
-		<setting>THIS.Top = 13</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+		<setting>THIS.Top = 97</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
-		<setting>THIS.Left = 235</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+		<setting>THIS.Left = 530</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
-		<setting>THIS.Height = IIF(VERSION(5)&gt;=900,663,504)</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+		<setting>THIS.Height = IIF(VERSION(5)&gt;=900,648,504)</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
-		<setting>THIS.Width = IIF(VERSION(5)&gt;=900,894,803)</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+		<setting>THIS.Width = IIF(VERSION(5)&gt;=900,1093,803)</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.inZoomTop = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.inZoomLeft = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.inZoomHeight = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.inZoomWidth = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.inZoomWindowState = 0</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.ActivePage = 1</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.grdTests.FontName = "Tahoma"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.grdTests.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.grdTests.FontBold = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.grdTests.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.FontName = "Arial"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.FontBold = .T.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.FontName = "Courier New"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.FontBold = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgFailuresAndErrors.edtFailuresAndErrors.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
+		<userid>Eric Selje</userid>
+		<setting>THIS.pgfDetails.pgFailuresAndErrors.cmdCompare.FontName = "Tahoma"</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
+		<userid>Eric Selje</userid>
+		<setting>THIS.pgfDetails.pgFailuresAndErrors.cmdCompare.FontSize = 9</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
+		<userid>Eric Selje</userid>
+		<setting>THIS.pgfDetails.pgFailuresAndErrors.cmdCompare.FontBold = .F.</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
+		<userid>Eric Selje</userid>
+		<setting>THIS.pgfDetails.pgFailuresAndErrors.cmdCompare.FontItalic = .F.</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgMessages.FontName = "Arial"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgMessages.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgMessages.FontBold = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgMessages.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgMessages.edtMessages.FontName = "Courier New"</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgMessages.edtMessages.FontSize = 9</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgMessages.edtMessages.FontBold = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.pgfDetails.pgMessages.edtMessages.FontItalic = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.ilLargeGrid=.F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.grdTests.COLUMN1.Width = 208</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
-		<setting>THIS.grdTests.COLUMN2.Width = 641</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+		<setting>THIS.grdTests.COLUMN2.Width = 840</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>SET ORDER TO TAG TCLOC IN (THIS.icGridRS)</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
-		<setting>=SEEK("THORTEST                                                                                                      TESTNEWTEST                                                                                                                       ",THIS.icGridRS,"TCLName")</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+		<setting>=SEEK("FOXUNITTESTS                                                                                                  TESTCOMPAREJSON                                                                                                                   ",THIS.icGridRS,"TCLName")</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.ilAllowDebug = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.ShowTips = .T.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.ilHonorTestPrefix = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.ilReloadTestsOnRun = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.ilCloseDebuggerAtEndOfTestsRun = .F.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.nSplitterPosition = 337</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.iResetResults = .T.</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.inColorPass = 56320</setting>
-	</fxupersist_50g0vhs98>
-	<fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
 		<userid>Eric Selje</userid>
 		<setting>THIS.inColorFail = 3289855</setting>
-	</fxupersist_50g0vhs98>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
+		<userid>Eric Selje</userid>
+		<setting>THIS.icCompareTool = 'c:\program'+Chr(32)+'files\beyond'+Chr(32)+'compare'+Chr(32)+'4\bcompare.exe'</setting>
+	</fxupersist_52j0j65xv>
+	<fxupersist_52j0j65xv>
+		<userid>Eric Selje</userid>
+		<setting>THIS.icCompareParameters = </setting>
+	</fxupersist_52j0j65xv>
 </VFPData>

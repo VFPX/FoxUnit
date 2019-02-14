@@ -1,0 +1,3 @@
+# Ignore some VFP generated files that don't belong in the repo
+*.[Ff][Xx][Pp]
+*.[Bb][Aa][Kk]
