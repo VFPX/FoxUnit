@@ -252,8 +252,18 @@ this.assertequals(o1,o2,"These objects are not equal.")
 	* 2. Implement the test by removing these comments and the default assertion and writing your own test code.
   This.MessageOut("Getting ready to run this test!")
   RETURN This.AssertNotImplemented()
-
-  ENDFUNC
+  EndFunc
+  
+  Dimension testTheory_Data[3,2]
+  testTheory_Data[1,1] = 1
+  testTheory_Data[1,2] = 2
+  testTheory_Data[2,1] = 3
+  testTheory_Data[2,2] = 6
+  testTheory_Data[3,1] = 5
+  testTheory_Data[3,2] = 10
+  Procedure testTheory (tnValue, tnResult)
+  	this.AssertEquals (m.tnResult, 2*m.tnValue)
+  EndProc
 
 **********************************************************************
 ENDDEFINE
