@@ -132,10 +132,10 @@ DEFINE CLASS FxuTestResult as Collection
 	
 	
 	********************************************************************
-	FUNCTION LogResult()
+	FUNCTION IncreaseTestsCompleted (tnCount)
 	********************************************************************
 	
-		this.inRunTests = this.inRunTests + 1
+		this.inRunTests = this.inRunTests + m.tnCount
 	
 	********************************************************************
 	ENDFUNC

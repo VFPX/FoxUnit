@@ -7375,12 +7375,15 @@ DEFINE CLASS fxufrmtestbroker AS fxufrmuser OF "fxu.vcx"
 			*--------------------------------------------------------------------------------------
 			* Check all data points for this theory
 			*--------------------------------------------------------------------------------------
-			Local loTestCase, lnDataPoint, lcResult, lnValue
+			Local loTestCase, lnDataPoint, lcResult, lnValue, lnCount
 			lcResult = ""
-			For lnDataPoint = 1 to Alen(toSource.&tcArray, 1)
+			lnCount = Alen(toSource.&tcArray, 1)
+			For lnDataPoint = 1 to m.lnCount
 				loTestCase = NewObject ( ;
 					m.tcClass, m.tcProgFile, null, m.toResult, this.ioFxuInstance ;
 				)
+				loTestCase.inTestCountsAs = 1/m.lnCount
+				toResult.icFailureErrorDetails = ""
 				loTestCase.Run (&lcParam)
 				If not Empty (toResult.icFailureErrorDetails)
 					If not Empty (m.lcResult)

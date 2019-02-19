@@ -56,6 +56,7 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 	inReturnCode = 0
 	ioAssert = .f.
 	icTestPrefix = "TEST"
+	inTestCountsAs = 1
 	HIDDEN ilTestingModalForm 
 
 	********************************************************************
@@ -189,7 +190,7 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 		
 		this.ioTestResult.inLastKey = LASTKEY()		
 		this.ioTestResult.inCurrentEndSeconds = SECONDS()
-		this.ioTestResult.LogResult()
+		This.ioTestResult.IncreaseTestsCompleted (This.inTestCountsAs)
 		this.PostTearDown()
 	
 	********************************************************************
