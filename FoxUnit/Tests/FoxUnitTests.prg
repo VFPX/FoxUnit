@@ -316,11 +316,19 @@ TEXT TO cActual
 	}
 ]
 ENDTEXT
-
 	This.assertEquals(cExpected, cActual, "As expected, they don't match.")
-	
-
   ENDFUNC
+  
+  Dimension testTheory_Data[3,2]
+  testTheory_Data[1,1] = 1
+  testTheory_Data[1,2] = 2
+  testTheory_Data[2,1] = 3
+  testTheory_Data[2,2] = 6
+  testTheory_Data[3,1] = 5
+  testTheory_Data[3,2] = 10
+  Procedure testTheory (tnValue, tnResult)
+  	this.AssertEquals (m.tnResult, 2*m.tnValue)
+  EndProc
 
 **********************************************************************
 ENDDEFINE

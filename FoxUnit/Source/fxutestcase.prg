@@ -56,6 +56,7 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 	inReturnCode = 0
 	ioAssert = .f.
 	icTestPrefix = "TEST"
+	inTestCountsAs = 1
 	HIDDEN ilTestingModalForm 
 
 	********************************************************************
@@ -112,8 +113,21 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 	********************************************************************
 
 	********************************************************************
-	FUNCTION Run()
+	FUNCTION Run( ;
+		 tu01, tu02, tu03, tu04, tu05, tu06, tu07, tu08, tu09, tu10 ;
+		,tu11, tu12, tu13, tu14, tu15, tu16, tu17, tu18, tu19, tu20 ;
+	)
 	********************************************************************
+		*--------------------------------------------------------------------------------------
+		* Pass all parameters on to the test
+		*--------------------------------------------------------------------------------------
+		Local lcParam
+		lcParam = Left ( ;
+			 " tu01,tu02,tu03,tu04,tu05,tu06,tu07,tu08,tu09,tu10" ;
+			+",tu11,tu12,tu13,tu14,tu15,tu16,tu17,tu18,tu19,tu20" ;
+			,Pcount()*5 ;
+		)
+	
 		LOCAL loEx as Exception
 		
 		this.ioAssert = .f.		
@@ -143,7 +157,7 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 			TRY
 				
 				this.SetUp()
-				this.RunTest()
+				this.RunTest(&lcParam)
 				*this.TearDown()
 			
 			CATCH TO loEx
@@ -176,7 +190,7 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 		
 		this.ioTestResult.inLastKey = LASTKEY()		
 		this.ioTestResult.inCurrentEndSeconds = SECONDS()
-		this.ioTestResult.LogResult()
+		This.ioTestResult.IncreaseTestsCompleted (This.inTestCountsAs)
 		this.PostTearDown()
 	
 	********************************************************************
@@ -260,12 +274,21 @@ DEFINE CLASS FxuTestCase As FxuTest OF FxuTest.Prg
 	********************************************************************
 
 	********************************************************************
-	FUNCTION RunTest()
+	FUNCTION RunTest( ;
+		 tu01, tu02, tu03, tu04, tu05, tu06, tu07, tu08, tu09, tu10 ;
+		,tu11, tu12, tu13, tu14, tu15, tu16, tu17, tu18, tu19, tu20 ;
+	)
 	********************************************************************
 	
 		LOCAL lcCurrentTest
 
-		lcCurrentTest = "this." + this.icCurrentTest + "()"		
+		lcCurrentTest = "this." + this.icCurrentTest + "(" + ;
+			Left ( ;
+				 " tu01,tu02,tu03,tu04,tu05,tu06,tu07,tu08,tu09,tu10" ;
+				+",tu11,tu12,tu13,tu14,tu15,tu16,tu17,tu18,tu19,tu20" ;
+				,Pcount()*5 ;
+			) + ")"
+
 		&lcCurrentTest
 
 	********************************************************************

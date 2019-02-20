@@ -7273,6 +7273,7 @@ DEFINE CLASS fxufrmtestbroker AS fxufrmuser OF "fxu.vcx"
 
 	*<DefinedPropArrayMethod>
 		*m: runtest
+		*m: runtheory
 	*</DefinedPropArrayMethod>
 
 	DataSession = 2
@@ -7298,7 +7299,7 @@ DEFINE CLASS fxufrmtestbroker AS fxufrmuser OF "fxu.vcx"
 	ENDPROC
 
 	PROCEDURE runtest
-		LPARAMETERS tcTestClass, tcTestMethod, toResult, tlAllowDebug
+		LPARAMETERS tcTestClass, tcUnused, toResult, tlAllowDebug
 		
 		IF !EMPTY(tlAllowDebug)
 			tlAllowDebug = .t.
@@ -7315,11 +7316,95 @@ DEFINE CLASS fxufrmtestbroker AS fxufrmuser OF "fxu.vcx"
 		
 		loTestCase = NEWOBJECT(lcClass, lcTestClassProgFile,.NULL.,toResult, this.ioFxuInstance)
 		
+			*--------------------------------------------------------------------------------------
+			* TestCase obtained the current test name from the result object. Check if there's a
+			* corresponding Data array.
+			*--------------------------------------------------------------------------------------
+			Local lcTestData, llHasDataArray
+			lcTestData = m.loTestCase.icCurrentTest + "_Data"
+			If PemStatus (m.loTestCase, m.lcTestData, 5)
+				llHasDataArray = .T.
+			Else
+				llHasDataArray = .F.
+			EndIf
+		
+			*--------------------------------------------------------------------------------------
+			* This is a theory...
+			*--------------------------------------------------------------------------------------
+			Local lnParam
+			If m.llHasDataArray
+				This.RunTheory ( ;
+					 m.loTestCase ;
+					,m.lcTestData ;
+					,m.lcClass ;
+					,m.lcTestClassProgFile ;
+					,m.toResult ;
+				)
+			
+			*--------------------------------------------------------------------------------------
+			* ...it's a plain test
+			*--------------------------------------------------------------------------------------
+			Else
+				loTestCase.Run()
+			EndIf
+		
 		loTestCase.ilAllowDebug = tlAllowDebug
 		
-		loTestCase.Run()
 		
-		RETURN 
+	ENDPROC
+
+	PROCEDURE runtheory
+		*========================================================================================
+		* Runs a theory for every data point provided.
+		*========================================================================================
+		LParameter toSource, tcArray, tcClass, tcProgFile, toResult
+		
+			*--------------------------------------------------------------------------------------
+			* Parameters are stored in a member array
+			*--------------------------------------------------------------------------------------
+			Local lnParam, lcParam
+			lcParam = ""
+			For lnParam = 1 to Alen(toSource.&tcArray, 2)
+				If not Empty (m.lcParam)
+					lcParam = m.lcParam + ", "
+				EndIf
+				lcParam = m.lcParam + ;
+					"toSource." + m.tcArray + "[m.lnDataPoint," + Transform(m.lnParam) + "]"
+			EndFor 
+		
+			*--------------------------------------------------------------------------------------
+			* Check all data points for this theory
+			*--------------------------------------------------------------------------------------
+			Local loTestCase, lnDataPoint, lcResult, lnValue, lnCount
+			lcResult = ""
+			lnCount = Alen(toSource.&tcArray, 1)
+			For lnDataPoint = 1 to m.lnCount
+				loTestCase = NewObject ( ;
+					m.tcClass, m.tcProgFile, null, m.toResult, this.ioFxuInstance ;
+				)
+				loTestCase.inTestCountsAs = 1/m.lnCount
+				toResult.icFailureErrorDetails = ""
+				loTestCase.Run (&lcParam)
+				If not Empty (toResult.icFailureErrorDetails)
+					If not Empty (m.lcResult)
+						lcResult = m.lcResult + Chr(13)+Chr(10) + Replicate("=",60) + Chr(13)+Chr(10)
+					EndIf
+					lcResult = m.lcResult	+"theory #" + Transform(m.lnDataPoint) + ": "
+					For lnValue = 1 to Alen(toSource.&tcArray, 2)
+						If m.lnValue > 1
+							lcResult = m.lcResult + ", "
+						EndIf
+						lcResult = m.lcResult + Transform (m.toSource.&tcArray[m.lnDataPoint, m.lnValue])
+					EndFor 
+					lcResult = m.lcResult + Chr(13)+Chr(10) + toResult.icFailureErrorDetails 
+				EndIf
+			EndFor
+		
+			*--------------------------------------------------------------------------------------
+			* Log combined test results
+			*--------------------------------------------------------------------------------------
+			toResult.icFailureErrorDetails = m.lcResult
+		
 	ENDPROC
 
 ENDDEFINE
