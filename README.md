@@ -16,3 +16,4 @@ FoxUnit can also be acquired via Thor's "Check For Updates"
 * [Files and Folders](FoxUnit_Folders.md)
 * [Online tutorial](http://www.aksel.com/whitepapers/foxunit.htm)
 * [Video Tutorial on Unit Testing (by Doug Hennig on OFUG 2013-12-17)](http://youtu.be/J5PH1tKPYpI)
+* [FoxUnit in Depth (by Eric Selje, from SWFox 2016)](http://saltydogllc.com/wp-content/uploads/Selje_FoxUnit-in-Depth.pdf)
