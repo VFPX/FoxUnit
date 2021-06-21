@@ -50,7 +50,8 @@ DEFINE CLASS FxuResultExceptionInfo as FxuCustom OF FxuCustom.prg
 		
 		lcException = (lcException + "An error occurred on line " + ;
 			TRANSFORM(toException.LineNo) + " of " + ;
-			toException.Procedure + " .")
+			toException.Procedure + " at stack level " + ;
+			Transform(m.toException.StackLevel) + ".")
 			
 		lcException = lcException + (CHR(10))
 		
@@ -59,6 +60,10 @@ DEFINE CLASS FxuResultExceptionInfo as FxuCustom OF FxuCustom.prg
 		lcException = lcException + (CHR(10))
 		
 		lcException = lcException + ("Error Message: " + toException.Message)
+		
+		lcException = lcException + CHR(10)
+		
+		lcException = lcException + ("User Value: " + Transform(m.toException.UserValue))
 		
 		lcException = lcException + CHR(10)
 		
