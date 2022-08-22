@@ -801,12 +801,14 @@ PROCEDURE createFxuResultsAddAllTestsAndRun
 				ENDIF
 			ENDIF
 
-			goFoxUnitForm.ioResultData = .NULL.
+			* Joel Leach: Releasing this early causes error when form is released below
+			*goFoxUnitForm.ioResultData = .NULL.
 			goFoxUnitForm.ioTestBroker = .NULL.
 			RELEASE loFrmLoadClass
 			*--
 			*goFoxUnitForm.SHOW()
 			*goFoxUnitForm.RunAllTests()
+
 			RELEASE goFoxUnitForm
 		ENDIF
 
