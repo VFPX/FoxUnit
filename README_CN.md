@@ -12,7 +12,7 @@
 
 FoxUnit也可以通过 Thor 的“检查更新”获得。
 
-[FoxUnit 更新历史](changelog/readme.md)
+[FoxUnit 更新历史](changelog/readme_CN.md)
 
 *资源*
 
